@@ -1,0 +1,20 @@
+Gatwick - Responsive Multipurpose Template
+
+Version 1.2 (April 22, 2015)
+---
+Bugfix. Scroll Down internal links for pages with left positioned menu.
+Bugfix. Replace height to minimal height for fullscreen sliders.
+Bugfix. Responsive fixes.
+Bugfix. No-sticky menu.
+Edit. Video background, replace html video poster to background image for mobile devices.
+Update. TouchSwipe 1.6 plugin. Remove disabled <a> link element.
+
+Version 1.1 (March 14, 2015)
+---
+Added. Header-absolute menu, for instance, for one page.
+Bugfix. No-sticky menu.
+Edit. Documentation: header section.
+
+Version 1.0 (March 13, 2015)
+---
+First Release 
