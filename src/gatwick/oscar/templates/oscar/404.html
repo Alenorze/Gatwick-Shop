@@ -1,0 +1,22 @@
+{% extends "error.html" %}
+{% load i18n %}
+
+{% block title %}
+{% trans 'Page not found' %} | {{ block.super }}
+{% endblock %}
+
+{% block error_heading %}
+{% trans "Page not found!" %}
+{% endblock %}
+
+
+    <div class="wrapper text-center">
+        <div class="col-sm-4 col-sm-offset-2">
+            <div class="icon icon-lg" data-icon="x"></div>
+                <h1 class="white">
+                    {% block error_message %}
+                    <p>{% trans "We're sorry but the page you are looking for can't be found." %}</p>
+                    {% endblock %}
+                </h1>
+        </div>
+    </div>
