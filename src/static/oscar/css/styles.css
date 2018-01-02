@@ -9222,9 +9222,6 @@ input[type="number"][id*="quantity"] {
 #basket_totals th small {
   font-weight: normal;
 }
-.total {
-  background-color: #FDF5D9!important;
-}
 .choose-block .well {
   position: relative;
   min-height: 240px;
