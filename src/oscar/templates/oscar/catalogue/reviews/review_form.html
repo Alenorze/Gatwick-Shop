@@ -5,14 +5,14 @@
     <div id="addreview" class="review_add">
         <form id="add_review_form" method="post" action="./#addreview">
             <fieldset>
-                <legend>{% trans "Leave a product review" %}</legend>
+                <legend>{% trans "Leave review" %}</legend>
                 {% csrf_token %}
                 
                 {% include 'partials/form_field.html' with field=form.title %}
 
                 <div class="reviewrating form-group {% if form.score.errors %}error{% endif %}">
                     <label for="{{ form.score.auto_id }}" class="control-label required">
-                        {{ form.score.label|safe }} <span>*</span>
+                        {{ form.score.label|safe }} 
                     </label>
                     <div class="controls">
                         {{ form.score }}

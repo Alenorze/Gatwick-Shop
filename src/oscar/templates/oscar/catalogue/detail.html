@@ -58,7 +58,7 @@
             {% include "catalogue/partials/gallery.html" %}
         </div>
         {% endblock %}
-
+        <div class="row">
         {% block product_main %}
         <div class="col-sm-6">
             {% comment %}
@@ -83,111 +83,63 @@
                     {{ product.description|safe }}
                 {% endif %}
             {% endblock %}
-    
+            
 
             {% block product_basket_form %}
                 {% include "catalogue/partials/add_to_basket_form.html" %}
             {% endblock %}
 
-    {% block product_info %}
-        <hr>
-    <table class="table cart-total">
-        {% comment %} {% if product.upc %}
-        <tr>
-            <th>{% trans "UPC" %}</th><td>{{ product.upc }}</td>
-        </tr>
-        {% endif %} {% endcomment %}
-        <tr>
-            <th>{% trans "Product Type :" %}</th><td class="table-dark">{{ product.get_product_class.name }}</td>
-        </tr>
+        {% block product_info %}
+            <hr>
+        <table class="table cart-total">
+            {% comment %} {% if product.upc %}
+            <tr>
+                <th>{% trans "UPC" %}</th><td>{{ product.upc }}</td>
+            </tr>
+            {% endif %} {% endcomment %}
+            <tr>
+                <th>{% trans "Product Type :" %}</th><td class="table-dark">{{ product.get_product_class.name }}</td>
+            </tr>
 
-        {% purchase_info_for_product request product as session %}
-        {% if session.price.exists %}
-            {% comment %} <tr>
-                <th>{% trans "Price (excl. tax)" %}</th><td>{{ session.price.excl_tax|currency:session.price.currency }}</td>
-            </tr> {% endcomment %}
-            {% if session.price.is_tax_known %}
-                <tr>
-                    <th>{% trans "Price (incl. tax) :" %}</th><td class="table-dark">{{ session.price.incl_tax|currency:session.price.currency }}</td>
-                </tr>
+            {% purchase_info_for_product request product as session %}
+            {% if session.price.exists %}
                 {% comment %} <tr>
-                    <th>{% trans "Tax" %}</th><td>{{ session.price.tax|currency:session.price.currency }}</td>
+                    <th>{% trans "Price (excl. tax)" %}</th><td>{{ session.price.excl_tax|currency:session.price.currency }}</td>
                 </tr> {% endcomment %}
+                {% if session.price.is_tax_known %}
+                    <tr>
+                        <th>{% trans "Price (incl. tax) :" %}</th><td class="table-dark">{{ session.price.incl_tax|currency:session.price.currency }}</td>
+                    </tr>
+                    {% comment %} <tr>
+                        <th>{% trans "Tax" %}</th><td>{{ session.price.tax|currency:session.price.currency }}</td>
+                    </tr> {% endcomment %}
+                {% endif %}
+                <tr>
+                    <th>{% trans "Availability :" %}</th>
+                    <td class="table-dark">{{ session.availability.message }}</td>
+                </tr>
             {% endif %}
-            <tr>
-                <th>{% trans "Availability :" %}</th>
-                <td class="table-dark">{{ session.availability.message }}</td>
-            </tr>
-        {% endif %}
-        {% for av in product.attribute_values.all %}
-            <tr>
-                <th>{{ av.attribute.name }}</th>
-                <td>{{ av.value_as_html }}</td>
-            </tr>
-        {% endfor %}
-        {% comment %} {% iffeature "reviews" %}
-            <tr>
-                <th>{% trans "Number of reviews" %}</th>
-                <td>{{ product.num_approved_reviews }}</td>
-            </tr>
-        {% endiffeature %} {% endcomment %}
-    </table>
+            {% for av in product.attribute_values.all %}
+                <tr>
+                    <th>{{ av.attribute.name }}</th>
+                    <td>{{ av.value_as_html }}</td>
+                </tr>
+            {% endfor %}
+            {% comment %} {% iffeature "reviews" %}
+                <tr>
+                    <th>{% trans "Number of reviews" %}</th>
+                    <td>{{ product.num_approved_reviews }}</td>
+                </tr>
+            {% endiffeature %} {% endcomment %}
+        </table>
+        {% endblock %}
+    </div>
     {% endblock %}
-</div><!-- /col-sm-6 -->
-{% endblock %}
-    
+</div>
 
     {% iffeature "reviews" %}
         {% block product_review %}
-        <div class="container">
-            <div id="reviews" class="sub-header">
-                {% if product.num_approved_reviews > 3 %}
-                    <a href="{% url 'catalogue:reviews-list' product_slug=product.slug product_pk=product.id %}" class="btn pull-right">{% trans "See all reviews" %}</a>
-                {% endif %}
-                <h2>{% trans "Customer Reviews" %}</h2>
-            </div>
-                <div class="">
-                    <div class="comments">
-                        <div class="comment clearfix">
-                            <div class="col-lg-offset-1 col-lg-2 col-sm-3 text-center">
-                                <div class="raty" data-score="3" data-readonly="true"></div>
-                            </div>
-                            <div class="col-lg-8 col-sm-9">
-                                <div class="comment-line">
-                                    <p><a href="">Susana Jacobs</a>, 12 july at 20:48</p>
-                                </div>
-                                <p>Ea nec enim accumsan, ut prima blandit mel, labores nonumes detraxit an sed. Omnis malis propriae an sed, eu mea erat utinam meliore, inciderint philosophia usu ne. Laudem labores eu sed, vix in omnis habemus omnesque.</p>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div class="row">
-                        <div class="col-lg-offset-1 col-lg-2 col-sm-3 text-center">
-                            <h3>Add new</h3>
-                        </div>
-                        <div class="col-md-8 col-sm-9">
-                            <div class="rating-wrap">
-                                <div class="raty"></div>
-                            </div>
-                            <form class="comment-form">
-                                <div class="form-wrap">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Your Name">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Email">
-                                    </div>
-                                    <div class="form-group">
-                                        <textarea placeholder="Message"></textarea>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-default">Send</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <section>
+        
             <div id="reviews" class="sub-header">
                 {% if product.num_approved_reviews > 3 %}
                     <a href="{% url 'catalogue:reviews-list' product_slug=product.slug product_pk=product.id %}" class="btn pull-right">{% trans "See all reviews" %}</a>
