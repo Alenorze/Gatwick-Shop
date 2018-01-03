@@ -8621,7 +8621,7 @@ form,
 .table,
 .page-header,
 .sub-header {
-  margin: 0 0 20px;
+  margin: 0 30px 30px;
 }
 ul,
 ol {
@@ -9046,7 +9046,7 @@ a:hover .thumbnail {
   width: 500px;
 }
 .review {
-  margin-bottom: 20px;
+  margin-bottom: 70px;
 }
 .review:before,
 .review:after {
@@ -9077,9 +9077,10 @@ a:hover .thumbnail {
 }
 .star-rating {
   color: #CBCBCB;
+  font-size: 25px;
 }
 .star-rating i {
-  letter-spacing: -1px;
+  letter-spacing: 2px;
   width: auto;
 }
 .star-rating a {
@@ -9112,6 +9113,9 @@ a:hover .thumbnail {
 }
 .promotion_single .image_container img {
   max-height: 200px;
+}
+.table-dark {
+  color: #555
 }
 .sidebar .promotion_single h2 {
   font-family: inherit;
@@ -16729,7 +16733,6 @@ ol.category-list a,
 
 .rating-wrap {
 	color: #808080;
-	margin-bottom: 20px;
 }
 
 .rating-wrap .raty {
@@ -16754,7 +16757,6 @@ ol.category-list a,
 }
 
 .rating-wrap > * {
-	vertical-align: middle;
 	display: inline-block;
 	margin-right: 10px;
 }

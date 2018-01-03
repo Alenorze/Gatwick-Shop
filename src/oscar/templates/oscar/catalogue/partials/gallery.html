@@ -4,16 +4,16 @@
 
 {% with all_images=product.images.all %}
 
-    {% if all_images|length > 1 %}
+    {% if all_images|length > 1 %}  
 
     <div class="col-sm-6 text-center magnific-wrap">
-            <div class="img-medium slider oneslider">
+            <div class="img-large slider oneslider">
                 <ul>
                     {% for image in all_images %}
                         <li>
                             <a class="magnific">
                                 {% thumbnail image.original "440x400" upscale=False as thumb %}
-                                <img src="{{ thumb.url }}" alt="{{ product.get_title }}" />
+                                    <img src="{{ thumb.url }}" alt="{{ product.get_title }}" />
                                 {% endthumbnail %}
                             </a>
                         </li>

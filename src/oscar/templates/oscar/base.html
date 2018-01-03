@@ -46,11 +46,12 @@
             <!-- jQuery -->
             <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
             <script>window.jQuery || document.write('<script src="{% static "oscar/js/jquery/jquery-1.9.1.min.js" %}"><\/script>')</script>
-            
         {% endblock %}
 
         {# Local scripts #}
         {% block scripts %}
+            <script src="../../static/oscar/js/gatwick/plugins.js"></script>
+            <script src="../../static/oscar/js/gatwick/custom.js"></script>
         {% endblock %}
 
         {# Additional JS scripts #}

@@ -3,7 +3,7 @@
 
 <article class="review">
     <header>
-        <h3 class="star-rating {{ review.score|as_stars }}">
+        <h3 class="star-rating  {{ review.score|as_stars }}">
             <span>
                 <i class="icon-star"></i>
                 <i class="icon-star"></i>
@@ -14,23 +14,29 @@
             <a href="{{ review.get_absolute_url }}">{{ review.title }}</a>
         </h3>
     </header>
-
-    <p>{{ review.body|striptags }}</p>
-
     <p>
         <small>
             {% if review.user == user %}
                 {% blocktrans with review_date=review.date_created %}
-                Reviewed by you on {{ review_date }}
+                <div class="comment-line">
+                    <p><strong>You</strong> | {{ review_date }}</p>
+                </div>
                 {% endblocktrans %}
             {% else %}
                 {% blocktrans with name=review.reviewer_name review_date=review.date_created %}
-                    Reviewed by <strong>{{ name }}</strong> on {{ review_date }}
+                    <div class="comment-line">
+                        <p><strong>{{ name }}</strong> | {{ review_date }}</p>
+                    </div>
                 {% endblocktrans %}
             {% endif %}
-            | <a href="{% url 'catalogue:reviews-detail' product_slug=product.slug product_pk=product.pk pk=review.pk %}">{% trans 'Permalink' %}</a>
         </small>
     </p>
+
+    
+
+    <p>{{ review.body|striptags }}</p>
+
+    
 
     {% if review|may_vote:user %}
         <small>{% trans "Is this review helpful?" %}</small>
