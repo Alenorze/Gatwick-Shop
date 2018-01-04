@@ -24,6 +24,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1']
 
+OSCAR_SHOP_TAGLINE = 'Gatwick-S'
+OSCAR_SHOP_NAME = 'Gatwick'
+OSCAR_RECENTLY_VIEWED_PRODUCTS = 20
+OSCAR_ALLOW_ANON_CHECKOUT = True
+OSCAR_DEFAULT_CURRENCY = 'USD'
+DISPLAY_VERSION = False
+
 
 from oscar import get_core_apps
 
@@ -38,6 +45,9 @@ INSTALLED_APPS = [
 
     'compressor',
     'widget_tweaks',
+    'sorl.thumbnail',
+    'apps.gateway',
+    'debug_toolbar'
 ] + get_core_apps()
 
 SITE_ID = 1
@@ -62,11 +72,102 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
+# HAYSTACK_CONNECTIONS = {
+#     'default': {
+#         'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
+#     },
+# }
+
 HAYSTACK_CONNECTIONS = {
-    'default': {
-        'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
-    },
+   'default': {
+       'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
+       'URL': u'http://127.0.0.1:8983/solr/oscar_latest/',
+       'INCLUDE_SPELLING': True
+   },
 }
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(message)s',
+        },
+        'simple': {
+            'format': '[%(asctime)s] %(message)s'
+        },
+    },
+    'root': {
+        'level': 'DEBUG',
+        'handlers': ['console'],
+    },
+    'handlers': {
+        'null': {
+            'level': 'DEBUG',
+            'class': 'logging.NullHandler',
+        },
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple'
+        },
+    },
+    'loggers': {
+        'oscar': {
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'oscar.catalogue.import': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'oscar.alerts': {
+            'handlers': ['null'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+
+        # Django loggers
+        'django': {
+            'handlers': ['null'],
+            'propagate': True,
+            'level': 'INFO',
+        },
+        'django.request': {
+            'handlers': ['console'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+        'django.db.backends': {
+            'level': 'WARNING',
+            'propagate': True,
+        },
+        'django.security.DisallowedHost': {
+            'handlers': ['null'],
+            'propagate': False,
+        },
+
+        # Third party
+        'raven': {
+            'level': 'DEBUG',
+            'handlers': ['console'],
+            'propagate': False,
+        },
+        'sorl.thumbnail': {
+            'handlers': ['console'],
+            'propagate': True,
+            'level': 'INFO',
+        },
+    }
+}
+
+THUMBNAIL_DEBUG = DEBUG
+THUMBNAIL_KEY_PREFIX = 'oscar-sandbox'
+THUMBNAIL_KVSTORE = env(
+    'THUMBNAIL_KVSTORE',
+    default='sorl.thumbnail.kvstores.cached_db_kvstore.KVStore')
+THUMBNAIL_REDIS_URL = env('THUMBNAIL_REDIS_URL', default=None)
 
 
 ROOT_URLCONF = 'gatwick.urls'

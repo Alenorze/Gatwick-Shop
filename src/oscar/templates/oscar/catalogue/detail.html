@@ -170,7 +170,6 @@
         </section>
         {% endblock product_review %}
     {% endiffeature %}
-
     {% with recommended_products=product.sorted_recommended_products|slice:":6" %}
         {% if recommended_products %}
             <div class="sub-header">
@@ -186,9 +185,9 @@
         {% endif %}
     {% endwith %}
 
-    {% recently_viewed_products current_product=product %}
+</article>
 
-</article><!-- End of product page -->
+    {% recently_viewed_products current_product=product %}
 {% endblock content %}
 
 {% block extrascripts %}
