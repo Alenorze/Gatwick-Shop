@@ -41,6 +41,7 @@ MANAGERS = (
 
 ADMINS = MANAGERS
 
+THUMBNAIL_KEY_PREFIX = 'gatwick'
 
 from oscar import get_core_apps
 
