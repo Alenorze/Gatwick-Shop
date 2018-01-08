@@ -95,13 +95,23 @@
     </form>
 
     {% if products %}
-    
-        <div class="col-md-9 col-sm-8 col-xs-7 product-list text-center">
-                {% for product in products %}
-                        {% render_product product %}
-                {% endfor %}
-                {% include "partials/pagination.html" %}
-        </div>
+
+          <div class='row'>
+            <div class='product--blue'>
+              <div class='product_inner'>
+                <img src='http://wellandgood.com/wp-content/uploads/2012/07/Nike-Free-30-Womens-Running-Shoe-511495_600_A.png' width='300'>
+                <p>Nike Air (Women)</p>
+                <p>Size 7</p>
+                <p>Price £199.99</p>
+                <button>Add to basket</button>
+              </div>
+              <div class='product_overlay'>
+                <h2>Added to basket</h2>
+                <i class='fa fa-check'></i>
+              </div>
+            </div>
+          </div>
+          
     {% else %}
         <p class="nonefound">{% trans "No products found." %}</p>
     {% endif %}
