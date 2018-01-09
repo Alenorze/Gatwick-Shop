@@ -921,7 +921,7 @@ img {
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
   display: block;
-  width: 100% \9;
+  width: 100%;
   max-width: 100%;
   height: auto;
 }
@@ -9340,7 +9340,7 @@ input[type="number"][id*="quantity"] {
   margin: 0 auto;
 }
 #product_gallery .carousel-inner > .item {
-  height: 400px;
+  height: 100%;
   line-height: 400px;
   vertical-align: middle;
   text-align: center;
@@ -9348,7 +9348,6 @@ input[type="number"][id*="quantity"] {
 #product_gallery .carousel-inner > .item > img {
   display: inline-block;
   vertical-align: middle;
-  max-height: 400px;
 }
 #product_gallery .carousel-control {
   background-image: none;
@@ -20913,47 +20912,7 @@ ul.twitter-list .date {
 	}
 }
 
-
-* {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-weight: 700;
-}
-
-html, body {
-  background: #EEE5E9;
-}
-
-header {
-  width: 95%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-}
-header ul {
-  padding: 1.2em 0 0.5em;
-}
-header span {
-  padding: 0 0 0 0.5em;
-}
-header span, header i {
-  color: #2B2D42;
-}
-header i:nth-of-type(2) {
-  cursor: pointer;
-}
-
-.row {
+.product-row {
   width: 100%;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
@@ -20967,7 +20926,7 @@ header i:nth-of-type(2) {
           flex-flow: row wrap;
 }
 
-.product, .product--blue, .product--orange, .product--red, .product--green, .product--yellow, .product--pink {
+.product-card, .product-card--blue, .product--orange, .product--red, .product--green, .product--yellow, .product--pink {
   -webkit-box-shadow: 1px 5px 15px #CCC;
           box-shadow: 1px 5px 15px #CCC;
   width: 15em;
@@ -20981,7 +20940,7 @@ header i:nth-of-type(2) {
       -ms-flex: auto;
           flex: auto;
 }
-.product--blue {
+.product-card--blue {
   background: linear-gradient(-45deg, #92DCE5 50%, rgba(255, 255, 255, 0.5) 50%);
 }
 .product--orange {
@@ -21079,3 +21038,5 @@ header i:nth-of-type(2) {
   color: rgba(43, 45, 66, 0.7);
   font-size: 1.5em;
 }
+
+

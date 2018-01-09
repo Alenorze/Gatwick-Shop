@@ -6,6 +6,8 @@ env = environ.Env()
 
 from oscar.defaults import *
 
+OSCAR_RECENTLY_VIEWED_PRODUCTS = 4
+
 location = lambda x: os.path.join(
     os.path.dirname(os.path.realpath(__file__)), x)
 
