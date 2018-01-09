@@ -69,7 +69,6 @@
                             </th>
                         </tr>
                     {% else %}
-                        {# No discounts to basket #}
                         <tr>
                             <th class="total">{% trans "Basket total" %}</th>
                             <th class="total align-right">
@@ -204,7 +203,7 @@
                 <tr>
                     <th class="total"><h3>{% trans "Order total" %}</h3></th>
                     <td class="total align-right">
-                        <h3 class="price_color">
+                        <h3>
                             {% if order_total.is_tax_known %}
                                 {{ order_total.incl_tax|currency:basket.currency }}
                             {% else %}

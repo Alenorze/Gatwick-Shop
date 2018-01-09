@@ -2334,8 +2334,15 @@ output {
   line-height: 1.42857143;
   color: #555555;
 }
-.form-control {
+.pos-div-1{
   display: block;
+  padding-top: 20px;
+}
+.pos-div-2{
+  display: block;
+  padding-top: 20px;
+}
+.form-control {
   width: 100%;
   height: 34px;
   padding: 6px 12px;
@@ -9188,17 +9195,20 @@ input[type="number"][id*="quantity"] {
 .basket-title h4 {
   margin: 0;
 }
+.basket-title h3 {
+  color: #888;
+}
 .basket-items {
-  border-bottom: 1px solid #c4c4c4;
   padding: 10px;
   margin-bottom: 20px;
-}
-.basket-items:nth-child(even) {
-  background: #f9f9f9;
+  padding: 20px 0
 }
 .basket-items img {
   margin-left: auto;
   margin-right: auto;
+}
+.basket-items a {
+  color: #777;
 }
 .basket-items .price_color {
   font-family: inherit;
@@ -9210,7 +9220,7 @@ input[type="number"][id*="quantity"] {
   font-size: 18px;
   font-size: 16.1px;
   line-height: 1.4;
-  color: #5cb85c;
+  color: #444;
   font-weight: bold;
 }
 .basket-items .price_color small,
@@ -16516,7 +16526,7 @@ img.mfp-img {
 	background-color: rgba(255,255,255,.8);
 	content: "\0020";
 	overflow: hidden;
-	z-index: 3;
+	z-index: 1;
 	display: block;
 	transition: opacity .3s ease;
 }
@@ -17225,7 +17235,7 @@ ol.category-list a,
 
 .cart-list .hcart-total {
 	background-color: #F7F7F7;
-	padding: 20px;
+  padding: 20px;
 }
 
 .cart-list .total {

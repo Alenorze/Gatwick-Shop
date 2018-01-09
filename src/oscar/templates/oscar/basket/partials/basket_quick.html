@@ -30,9 +30,9 @@
         <a href="{% url 'basket:summary' %}" class="btn btn-primary pull-left">{% trans "View basket" %}</a>
         <div class="total pull-left">
             {% if request.basket.is_tax_known %}
-                <small>{% trans "Total -" %} <ins>{{ request.basket.total_incl_tax|currency:request.basket.currency }}</ins></small> 
+                {% trans "Total -" %} <ins>{{ request.basket.total_incl_tax|currency:request.basket.currency }}</ins>
             {% else %}
-                <small>{% trans "Total -" %}  <ins>{{ request.basket.total_excl_tax|currency:request.basket.currency }}</ins></small> 
+                {% trans "Total -" %} <ins>{{ request.basket.total_excl_tax|currency:request.basket.currency }}</ins>
             {% endif %}
         </div>
 </div>
