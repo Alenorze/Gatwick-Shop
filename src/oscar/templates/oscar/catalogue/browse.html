@@ -26,16 +26,16 @@
 {% block column_left %}
     {% category_tree as tree_categories %}
     {% if tree_categories %}
-        <h4>{% trans "Show results for" %}</h4>
-        <div class="side_categories">
-            <ul class="nav nav-list">
+        <div class="widget">
+            <h4>{% trans "Show results for" %}</h4>
+            <ul class="category-list">
                 {% for tree_category, info in tree_categories %}
                     <li>
                         <a href="{{ tree_category.get_absolute_url }}">
                             {% if tree_category.pk == category.pk %}
-                                <strong>{{ tree_category.name }}</strong>
+                                <li><a href=""><strong>{{ tree_category.name }}</strong></a></li>
                             {% else %}
-                                {{ tree_category.name }}
+                                <li><a href="">{{ tree_category.name }}</a></li>
                             {% endif %}
                         </a>
 

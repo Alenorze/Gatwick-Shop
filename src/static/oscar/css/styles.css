@@ -20927,9 +20927,7 @@ ul.twitter-list .date {
 }
 
 .product-card, .product-card--blue, .product--orange, .product--red, .product--green, .product--yellow, .product--pink {
-  -webkit-box-shadow: 1px 5px 15px #CCC;
-          box-shadow: 1px 5px 15px #CCC;
-  width: 15em;
+  width: 300px;
   height: auto;
   border-radius: 3px;
   padding: 2em;
