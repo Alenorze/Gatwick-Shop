@@ -21012,6 +21012,10 @@ ul.twitter-list .date {
 .product_inner button:hover:before {
   color: #2B2D42;
 }
+.main-img{
+  background: url(http://gatwick.aisconverse.com/images/portfolio/work-1.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
 .product_overlay {
   background: rgba(255, 255, 255, 0.9);
   width: 100%;
