@@ -16,9 +16,9 @@
             {% include "partials/mini_basket.html" %}
 
         <div class="navbar-collapse primary-collapse collapse">
-            <ul  class="nav navbar-nav pull-right">
+            <ul class="nav navbar-nav pull-right">
                 <li>
-                    <a href="https://www.youtube.com/watch?v=1y6smkh6c-0">
+                    <a href="{{ homepage_url }}">
                         {% trans "Home" %}
                     </a>
                 </li>
@@ -28,7 +28,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.youtube.com/watch?v=1y6smkh6c-0">
+                    <a href="{% url 'catalogue:index' %}">
                         {% trans "Shop" %}
                     </a>
                 </li>
@@ -38,7 +38,6 @@
             </ul>
                 
             {% comment %} {% include "partials/search.html" %} {% endcomment %}
-            
         </div>
     
     </div>
